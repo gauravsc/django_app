@@ -1,0 +1,25 @@
+{% load socialaccount %}
+{% load static %}
+
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'social_app/css/style.css' %}">
+    <title>Google Registration</title>
+  </head>
+  <body>
+  {% if user.is_authenticated %}
+    <h1>My Google Login Project</h1>
+    {% if user.get_full_name != '' %}
+      <p>Welcome, {{ user.first_name }}!</p>
+    {% else %}
+      <p>Welcome, {{ user.username }}!</p>
+    {% endif %}
+  <a href="/logout">Logout</a>
+ 
+  {% else %}
+  <h1>My Google Login Project</h1>
+  <a href="{% provider_login_url 'google' %}">Login with Google</a>
+  {% endif %}
+
+  </body>
+</html>
