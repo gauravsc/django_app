@@ -1,3 +1,7 @@
-body{
-	background-color: yellow;
+body {
+    background-color: yellow;
+}
+
+img {
+    max-height: 200px;
 }

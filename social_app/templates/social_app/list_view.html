@@ -1,5 +1,8 @@
 Hello! You are in the file list_view.html
 
-{% for val in data %}
-	{{val}}
-{% endfor %}
+<form action="/post_submission" method="post">
+	{% csrf_token %}
+    <label for="spreadsheet">spreadsheet </label>
+    <input id="spreadsheet" type="text" name="spreadsheet" value="{{ current_spreadsheet }}">
+    <input type="submit" value="OK">
+</form>

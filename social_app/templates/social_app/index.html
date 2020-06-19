@@ -1,25 +1,27 @@
 {% load socialaccount %}
 {% load static %}
-
 <html>
-  <head>
+
+<head>
     <link rel="stylesheet" href="{% static 'social_app/css/style.css' %}">
     <title>Google Registration</title>
-  </head>
-  <body>
-  {% if user.is_authenticated %}
+</head>
+
+<body>
+    <img src="{% static 'social_app/images/Drawing1.png' %}" />
+    {% if user.is_authenticated %}
     <h1>My Google Login Project</h1>
     {% if user.get_full_name != '' %}
-      <p>Welcome, {{ user.first_name }}!</p>
+    <p>Welcome, {{ user.first_name }}!</p>
     {% else %}
-      <p>Welcome, {{ user.username }}!</p>
+    <p>Welcome, {{ user.username }}!</p>
     {% endif %}
-  <a href="/logout">Logout</a>
- 
-  {% else %}
-  <h1>My Google Login Project</h1>
-  <a href="{% provider_login_url 'google' %}">Login with Google</a>
-  {% endif %}
+    <a href="/logout">Logout</a>
+    {% else %}
+    <h1>My Google Login Project</h1>
+    <a href="{% provider_login_url 'google' %}">Login with Google</a>
+    {% endif %}
+    <script type="text/javascript" src="{% static 'social_app/javascript/main.js' %}"></script>
+</body>
 
-  </body>
 </html>
